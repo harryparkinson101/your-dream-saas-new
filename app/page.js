@@ -1,113 +1,112 @@
+"use client";
+import AnimatedText from "./components/AnimatedText";
+import { HireMe } from "./components/HireMe";
+import { LinkArrow } from "./components/Icons";
+
+import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
+import lightBulb from "../public/images/svgs/miscellaneous_icons_1.svg";
+import profilePic from "../public/images/profile/developer-pic-1.png";
+import TransitionEffect from "./components/TransitionEffect";
+import Typewriter from "./components/Typewriter";
+{
+  /*TODO: Need to make a Card component and import it into reviews */
+}
+//import Reviews from "./reviews";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+    <>
+      <Head>
+        <title>
+          Your Dream SaaS Ltd - Comprehensive Digital Solutions for Businesses
+        </title>
+        <meta
+          name="description"
+          content="Discover Your Dream SaaS Ltd: A leading provider of professional website creation, digital marketing, and hosting services. Specializing in bespoke digital solutions, we offer state-of-the-art web design, strategic digital marketing, and essential web solutions including hosting, SSLs, and domains. Our expertise ensures your business excels in the digital landscape. Book a consultation to transform your online presence into a powerful asset."
         />
-      </div>
+        {/* Additional SEO meta tags */}
+        <meta
+          name="keywords"
+          content="professional website design, digital marketing services, hosting solutions, SSL certificates, domain registration, web development, online business growth"
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.yourdreamsaas.com" />
+      </Head>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <TransitionEffect />
+      <article
+        className={`flex min-h-screen items-center text-dark dark:text-light sm:items-start`}
+      >
+        <div className="!pt-0 md:!pt-16 sm:!pt-16">
+          <div className="flex w-full items-start justify-between md:flex-col">
+            <div className="w-1/2 lg:hidden md:inline-block md:w-full">
+              {/* Ensure you have the profilePic variable defined or imported */}
+              <Image
+                src={profilePic}
+                alt="Profile Picture"
+                className="h-auto w-full"
+                sizes="100vw"
+                priority
+              />
+            </div>
+            {/* TODO: Add a gradient background to the text */}
+            <div className="flex w-1/2 flex-col items-center self-center lg:w-full lg:text-center">
+              <AnimatedText
+                text="Empower Your Business Online with Your Dream SaaS"
+                className="!text-left !text-6xl xl:!text-5xl lg:!text-center lg:!text-6xl md:!text-5xl sm:!text-3xl"
+              />
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+              {/* TODO: Fix padding issue on small devices */}
+              <Typewriter />
+              <p className="my-4 text-base font-medium md:text-sm sm:!text-xs pr-10">
+                Welcome to Your Dream SaaS – your all-in-one digital solutions
+                partner! We specialize in crafting professional websites,
+                providing top-tier digital marketing services, and offering a
+                suite of essential web solutions including hosting, SSLs, and
+                domains.
+                <br /> <br />
+                Leveraging our expertise and exclusive partnerships, we ensure
+                your business thrives in the digital world. Book a consultation
+                today, and let us transform your online presence into a powerful
+                business asset!
+              </p>
+              <div className="mt-2 flex items-center self-start lg:self-center pt-8 pb-20 mb-10">
+                <Link
+                  whileHover={{
+                    cursor: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='font-size:24px;'><text y='50%'>👆</text></svg>"), auto`,
+                  }}
+                  href="/products.pdf" // Updated link for products information
+                  target={"_blank"}
+                  className={`flex items-center rounded-lg border-2 border-solid bg-primary p-2.5 px-6 text-lg font-semibold
+            capitalize text-light hover:border-dark hover:bg-sky-500 hover:text-white
+            dark:bg-primary dark:text-white dark:hover:bg-sky-500 dark:hover:text-light transition-all duration-400
+            md:p-2 md:px-4 md:text-base
+            `}
+                  download
+                >
+                  Explore Our Services{" "}
+                  <LinkArrow className="ml-1 !w-6 md:!w-4" />
+                </Link>
+                {/* Updated call to action */}
+                <Link
+                  href="mailto:consultation@yourdreamsaas.com" // Professional email for consultation
+                  className="ml-4 text-lg font-medium capitalize text-dark underline 
+                  dark:text-light md:text-base"
+                >
+                  Book Your Consultation
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* TODO: Create a carosel with Words like, Security, SSLs, Domains, Hosting, Web Design, Professional Email, Office 365, Customer Support, Marketing,  */}
+        <div className="items-center justify-center flex text-center">
+          <HireMe />
+        </div>
+      </article>
+      {/*<Reviews />*/}
+    </>
   );
 }
