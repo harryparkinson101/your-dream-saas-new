@@ -81,3 +81,7 @@
   background-clip: text;
   display: inline-block; /* Required for gradients on text */
 }
+
+.mobile-nav {
+  z-index: 9999;
+}
