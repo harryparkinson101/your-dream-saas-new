@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -13,7 +13,7 @@ import {
 } from "./Icons";
 import { motion } from "framer-motion";
 import { useThemeSwitch } from "../hooks/useThemeSwitch";
-
+import ComingSoonModal from "../components/ComingSoonModal";
 const CustomLink = ({ href, title, className = "" }) => {
   const router = useRouter();
 
@@ -77,7 +77,7 @@ const Navbar = () => {
 
   return (
     <header
-      className="w-full flex items-center justify-between px-16 py-8 font-medium z-10 dark:text-light
+      className="w-full flex items-center justify-between px-6 py-8 font-medium z-10 dark:text-light
     lg:px-16 relative z-1 md:px-12 sm:px-8
     "
     >
@@ -119,8 +119,11 @@ const Navbar = () => {
             href="/projects"
             title="Projects"
           />
-          {/*<CustomLink className="ml-4" href="/pricing" title="Pricing" />*/}
-          {/*<CustomLink className="ml-4 hover:text-primary" href="/reviews" title="Reviews" />*/}
+          <CustomLink
+            className="mx-4 hover:text-primary"
+            href="/pricing"
+            title="Pricing"
+          />
           <CustomLink
             className="ml-4 hover:text-primary"
             href="/marketing"
@@ -131,72 +134,70 @@ const Navbar = () => {
             href="/articles"
             title="Articles"
           />
-          <a
-            href="https://shop.yourdreamsass.com"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
             className="ml-4 bg-primary hover:bg-sky-500 hover:text-white hover:scale-105 text-light px-4 py-2 rounded hover:bg-primary-dark transition-all duration-400"
+            onClick={() => document.getElementById("coming-soon").showModal()}
           >
             Visit Our Shop
-          </a>
-        </nav>
-        <nav
-          className="flex items-center justify-center flex-wrap lg:mt-2
-      "
-        >
-          {/* TODO: Need to add Social Media Handles */}
-          <motion.a
-            target={"_blank"}
-            className="w-6 mr-3"
-            href="#"
-            whileHover={{ y: -2, x: 2 }}
-            whileTap={{ scale: 0.9 }}
-            aria-label="Checkout my twitter profile"
-          >
-            <TwitterIcon />
-          </motion.a>
-          <motion.a
-            target={"_blank"}
-            className="w-6 mx-3"
-            href="https://github.com/harryparkinson101"
-            whileHover={{ y: -2, x: 2 }}
-            whileTap={{ scale: 0.9 }}
-            aria-label="Checkout my github profile"
-          >
-            <GithubIcon />
-          </motion.a>
-          <motion.a
-            target={"_blank"}
-            className="w-6 mx-3"
-            href="#"
-            whileHover={{ y: -2, x: 2 }}
-            whileTap={{ scale: 0.9 }}
-            aria-label="Checkout my linkedin profile"
-          >
-            <LinkedInIcon />
-          </motion.a>
-
-          <button
-            onClick={() => setMode(mode === "light" ? "dark" : "light")}
-            className={`w-8 h-8 ease ml-3 flex items-center justify-center rounded-lg p-1  
-            ${mode === "light" ? "bg-dark  text-light" : "bg-light  text-dark"}
-            `}
-            aria-label="theme-switcher"
-          >
-            {mode === "light" ? (
-              <SunIcon className={"fill-dark"} />
-            ) : (
-              <MoonIcon className={"fill-dark"} />
-            )}
           </button>
         </nav>
-      </div>
-      {isOpen ? (
-        <motion.div
-          className="min-w-[70vw] sm:min-w-[90vw] flex justify-between items-center flex-col fixed top-1/2 left-1/2 -translate-x-1/2
-      -translate-y-1/2
-      py-32 bg-dark/90 dark:bg-light/75 rounded-lg z-50 backdrop-blur-md
+        <ComingSoonModal />
+        <div className="dark:bg-gray-700 p-2 rounded-xl bg-black/20">
+          <nav
+            className="flex items-center justify-center flex-wrap lg:mt-2
       "
+          >
+            {/* TODO: Need to add Social Media Handles */}
+            <motion.a
+              target={"_blank"}
+              className="w-6 mr-3"
+              href="#"
+              whileHover={{ y: -2, x: 2 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Checkout my twitter profile"
+            >
+              <TwitterIcon />
+            </motion.a>
+            <motion.a
+              target={"_blank"}
+              className="w-6 mx-3"
+              href="https://github.com/harryparkinson101"
+              whileHover={{ y: -2, x: 2 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Checkout my github profile"
+            >
+              <GithubIcon />
+            </motion.a>
+            <motion.a
+              target={"_blank"}
+              className="w-6 mx-3"
+              href="#"
+              whileHover={{ y: -2, x: 2 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label="Checkout my linkedin profile"
+            >
+              <LinkedInIcon />
+            </motion.a>
+
+            <button
+              onClick={() => setMode(mode === "light" ? "dark" : "light")}
+              className={`w-8 h-8 ease ml-3 flex items-center justify-center rounded-lg p-1  
+            ${mode === "light" ? "bg-dark  text-light" : "bg-light  text-dark"}
+            `}
+              aria-label="theme-switcher"
+            >
+              {mode === "light" ? (
+                <SunIcon className={"fill-dark"} />
+              ) : (
+                <MoonIcon className={"fill-dark"} />
+              )}
+            </button>
+          </nav>
+        </div>
+      </div>
+      {isOpen && (
+        <motion.div
+          className=" sm:min-w-[90vw] md:min-w-[70vw] lg:min-w-[60vw] hidden lg:flex justify-between items-center flex-col fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 py-32 bg-dark/90 dark:bg-light/40 rounded-lg mobile-nav backdrop-blur-md"
           initial={{ scale: 0, x: "-50%", y: "-50%", opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
         >
@@ -219,12 +220,12 @@ const Navbar = () => {
               href="/projects"
               title="Projects"
             />
-            {/*<CustomMobileLink
+            <CustomMobileLink
               toggle={handleClick}
               className="ml-4 lg:m-0 lg:my-2"
               href="/pricing"
               title="Pricing"
-            />*/}
+            />
 
             <CustomMobileLink
               toggle={handleClick}
@@ -249,7 +250,8 @@ const Navbar = () => {
               </a>
             </div>
           </nav>
-          <nav className="flex items-center justify-center  mt-2 pt-4">
+
+          <div className="flex items-center justify-center  mt-2 pt-4">
             {/* TODO: add Social Media Handles */}
             <motion.a
               target={"_blank"}
@@ -314,9 +316,9 @@ const Navbar = () => {
                 <MoonIcon className={"fill-dark"} />
               )}
             </button>
-          </nav>
+          </div>
         </motion.div>
-      ) : null}
+      )}
     </header>
   );
 };

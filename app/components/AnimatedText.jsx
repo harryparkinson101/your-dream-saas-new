@@ -8,8 +8,8 @@ const quote = {
   visible: {
     opacity: 1,
     transition: {
-      delay: 0.5,
-      staggerChildren: 0.08,
+      delay: 1,
+      staggerChildren: 0.6,
     },
   },
 };
@@ -17,18 +17,20 @@ const quote = {
 const singleWord = {
   hidden: {
     opacity: 0,
-    y: 50,
+    y: 70,
+    x: -40,
   },
   visible: {
     opacity: 1,
     y: 0,
+    x:0,
     transition: {
       duration: 1,
     },
   },
 };
 
-const AnimatedText = ({ text, className = "" }) => {
+const AnimatedText = ({ text, className = "", }) => {
   return (
     <div className="py-2 w-full mx-auto flex flex-col items-center justify-center  text-center  
     overflow-hidden sm:py-0">

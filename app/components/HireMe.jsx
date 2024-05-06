@@ -5,8 +5,8 @@ import { CircularText } from "./Icons";
 export const HireMe = () => {
   return (
     <div
-      className=" absolute left-4 bottom-4 flex flex-col items-center justify-center md:right-8 sm:right-0 
-    overflow-hidden md:left-auto md:top-0 md:absolute z-20 lg:-bottom-20 md:items-center md:h-16 md:p-20 md:mt-20 lg:right-20"
+      className=" absolute left-4 bottom-4 flex flex-col items-center justify-center
+    overflow-hidden md:hidden sm:hidden lg:hidden"
     >
       <div className="w-48 h-48 flex items-center justify-center relative md:w-28 md:h-28 lg:mt-10 lg:pt-10">
         <CircularText
