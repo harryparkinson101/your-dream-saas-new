@@ -188,8 +188,8 @@ export default function Projects() {
                 title="Datawave Management System"
                 summary="A web application that allows users to manage their data and generate reports. It is built with React, Tailwind CSS, and Firebase. It has a responsive design and is mobile-friendly."
                 img={proj1}
-                link="https://devdreaming.com/videos/build-crypto-screener-app-with-react-tailwind-css"
-                github="https://github.com/codebucks27/CryptoBucks-Final-Code"
+                link="https://strong-cheesecake-a4ad1b.netlify.app/"
+                github=""
               />
             </div>
             <div className="col-span-6 sm:col-span-12">
@@ -197,8 +197,8 @@ export default function Projects() {
                 type="Website"
                 title="Philharmonic"
                 img={proj2}
-                link="https://devdreaming.com/videos/create-nft-collection-website-reactjs"
-                github="https://github.com/codebucks27/The-Weirdos-NFT-Website-Starter-Code"
+                link="https://philharmonic-psg.co.uk/"
+                github=""
               />
             </div>
             <div className="col-span-6 sm:col-span-12">
@@ -206,8 +206,8 @@ export default function Projects() {
                 type="Website"
                 title="Gericht fine dining"
                 img={proj3}
-                link="https://devdreaming.com/videos/build-stunning-fashion-studio-website-with-reactJS-locomotive-scroll-gsap"
-                github="https://github.com/codebucks27/wibe-studio"
+                link="https://taupe-lolly-1d6978.netlify.app/"
+                github=""
               />
             </div>
             <div className="col-span-12">
@@ -216,26 +216,17 @@ export default function Projects() {
                 title="Stop-Away AirBnB Clone"
                 summary="Stop Away is a clone of AirBnB. It is built with React, Tailwind CSS, and Firebase. It has a responsive design and is mobile-friendly."
                 img={proj4}
-                link="https://devdreaming.com/videos/build-stunning-portfolio-website-react-js-framer-motion"
-                github="https://github.com/codebucks27/react-portfolio-final"
+                link="https://stop-away.vercel.app/"
+                github=""
               />
             </div>
             <div className="col-span-6 sm:col-span-12">
               <Project
                 type="Website"
                 img={proj5}
-                title="ALive - interactive solar system"
-                link="https://devdreaming.com/videos/build-stunning-fashion-studio-website-with-reactJS-locomotive-scroll-gsap"
-                github="https://github.com/codebucks27/wibe-studio"
-              />
-            </div>
-            <div className="col-span-6 sm:col-span-12">
-              <Project
-                type="Blog Website"
-                img={proj6}
-                title="DevDreaming"
-                link="https://devdreaming.com"
-                github="https://github.com/codebucks27"
+                title="Alive - Interactive Solar System"
+                link="https://startling-starship-e3465d.netlify.app/"
+                github=""
               />
             </div>
           </div>
