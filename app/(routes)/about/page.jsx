@@ -66,13 +66,10 @@ const staggerVariants = {
 };
 
 export default function About() {
-  useEffect(() => {
-    document.title = "About Us - Your Dream SaaS Ltd";
-  }, []);
   return (
     <>
       <Head>
-        <title>{document.title}</title>
+        <title>About</title>
         <meta
           name="description"
           content="Discover the story behind Your Dream SaaS Ltd, a vanguard in web development and digital marketing. With a foundation rooted in innovation and customer-focused solutions, we are redefining the digital landscape. Explore our journey, values, and vision as we continue to empower businesses worldwide."
