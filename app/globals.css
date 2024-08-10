@@ -35,7 +35,7 @@
     --radius: 0.5rem;
   }
 
-  .dark {
+  :root {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
@@ -67,7 +67,6 @@
 }
 
 @layer base {
-
 }
 
 .gradient-text {
@@ -84,4 +83,34 @@
 
 .mobile-nav {
   z-index: 9999;
+}
+
+/* Custom tooltip styles */
+.custom-tooltip {
+  background-color: blue; /* Blue background */
+  color: white; /* White text */
+
+}
+
+/* Apply shake animation */
+.custom-tooltip.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
