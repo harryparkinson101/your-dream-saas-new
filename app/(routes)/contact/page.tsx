@@ -1,37 +1,42 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Label } from "../../components/ui/label";
 import { Input } from "../../components/ui/input";
 import { cn } from "../../utils/cn";
 import { BackgroundBeams } from "../../components/ui/background-beams";
 import dynamic from "next/dynamic";
 import { useThemeSwitch } from "../../hooks/useThemeSwitch";
+import { Earth } from 'lucide-react';
+import { Tooltip } from 'react-tooltip'
 
-// TODO: Need to add a loader component, I will add this globally
-// Correct dynamic import with explicit typing  
+
+
+const FallbackLoader = () => (
+  <div className="flex items-center justify-center h-full">
+    <div className="flex flex-col items-center">
+      <div className="relative">
+        <Earth className="w-24 h-24 text-gray-500 animate-spin" />
+        {/* Optional: Add additional styling or animations to the icon */}
+      </div>
+      <p className="mt-4 text-gray-700">Loading globe...</p>
+    </div>
+  </div>
+);
+
 const World = dynamic(() => import("../../components/ui/globe").then(mod => mod.World), {
   ssr: false,
-  loading: () => <p>Loading globe...</p>
+  loading: () => <FallbackLoader />
 });
 
-export default function Contact() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [themeMode] = useThemeSwitch(); // Get the current theme mode
 
-  useEffect(() => {
-    // Set isLoading to false when the World component has loaded
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000); // Adjust the delay as needed
-    return () => clearTimeout(timer);
-  }, []);
+export default function Contact() {
+  const [themeMode] = useThemeSwitch(); // Get the current theme mode
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form submitted");
   };
-
 
   // Define globeConfig based on themeMode
   const [globeConfig, setGlobeConfig] = useState({
@@ -437,9 +442,9 @@ export default function Contact() {
           Start Your Digital Journey with Us
         </h1>
       </div>
-      <div className="justify-around flex w-2/3 mt-6">
-        <div className=" w-1/2 items-center flex justify-center">
-          <div className="relative z-10 max-w-lg w-full h-fit mt-0 md:rounded-2xl p-4 md:p-8 bg-gray-100 dark:bg-black drop-shadow-[0_0_5px_rgba(255,255,255,0.7)] dark:shadow-blue-700 shadow-lg shadow-pink-700 rounded-xl transition-all ease-in-out duration-300">
+      <div className="justify-around flex w-full mt-6">
+        <div className=" w-3/4 items-center flex justify-center">
+          <div className="relative z-10  w-3/4 h-fit mt-0 md:rounded-2xl p-4 md:p-8 bg-gray-100 dark:bg-black drop-shadow-[0_0_5px_rgba(255,255,255,0.7)] dark:shadow-blue-700 shadow-lg shadow-pink-700 rounded-xl transition-all ease-in-out duration-300">
             <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
               Turn Your Vision into Reality
             </h2>
@@ -484,14 +489,13 @@ export default function Contact() {
 
         </div>
         <div className=" w-1/2 items-center flex justify-center">
-
-          {/* Conditionally render the globe */}
-          <div className="items-center h-full w-full p-10 z-50 justify-center">
-            {isLoading ? (
-              <p>Loading globe...</p>
-            ) : (
-              <World data={sampleArcs} globeConfig={globeConfig} />
-            )}
+          <div
+            className="items-center h-full w-full sm:w-1/4 sm:h-1/4 md:w-2/4 md:h-2/4 lg:w-full lg:h-full xl:h-full xl:w-full p-0 z-50 justify-center"
+            data-tooltip-id="world-tooltip"
+            data-tooltip-content="Spin Me!"
+          >
+            <World data={sampleArcs} globeConfig={globeConfig} />
+            <Tooltip id="world-tooltip" place="top" className="custom-tooltip shake" />
           </div>
         </div>
       </div>
@@ -500,7 +504,7 @@ export default function Contact() {
       </div>
 
 
-    </div>
+    </div >
   );
 }
 

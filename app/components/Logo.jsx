@@ -11,7 +11,7 @@ const Logo = () => {
         href="/"
         className="flex items-center justify-center rounded-lg w-30 p-2 h-14 sm:hidden lg-hidden  bg-dark text-white dark:border-2 dark:border-solid dark:border-light
     text-2xl font-bold"
-        whileHover={{
+        whilehover={{
           backgroundColor: [
             "#121212",
             "rgba(131,58,180,1)",
