@@ -66,6 +66,7 @@ export default function Projects() {
               className="fixed inset-0 bg-black/20 h-full w-full"
             />
           )}
+          
         </AnimatePresence>
         <AnimatePresence>
           {active && typeof active === "object" ? (
